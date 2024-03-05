@@ -1,0 +1,50 @@
+a = "10"
+b = "15"
+c = "20"
+d = "25"
+e = "30"
+f = "35"
+g = "40"
+h = "45"
+i = "50"
+rowA = [a, a, a, a, a, a, a, a]
+rowB = [b, b, b, b, b, b, b, b]
+rowC = [c, c, c, c, c, c, c, c]
+rowD = [d, d, d, d, d, d, d, d]
+rowE = [e, e, e, e, e, e, e, e]
+rowF = [f, f, f, f, f, f, f, f]
+rowG = [g, g, g, g, g, g, g, g]
+rowH = [h, h, h, h, h, h, h, h]
+rowI = [i, i, i, i, i, i, i, i]
+def pick():
+    C = 1
+    Theater = [rowI, rowH, rowG, rowF, rowE, rowD, rowC, rowB, rowA]
+    while (C == 1):
+        print("pick your row, 1-9")
+        pickRow = int(input())
+        chosenRow = Theater[pickRow - 1]
+        print("pick your seat in that row, 1-8")
+        pickSeat = int(input())
+        if (chosenRow[pickSeat - 1] == "XX"):
+            print("That seat had been sold, pick another")
+            C = 1
+        else:
+            C = 4
+    chosenRow[pickSeat - 1] = "XX"
+    print("", rowA, "\n", rowB, "\n", rowC, "\n", rowD, "\n", rowE, "\n", rowF, "\n", rowG, "\n", rowH, "\n", rowI)
+def main():
+    Z = 0
+    while (Z == 0):
+        print("", rowA, "\n", rowB, "\n", rowC, "\n", rowD, "\n", rowE, "\n", rowF, "\n", rowG, "\n", rowH, "\n", rowI)
+        pick()
+        print("would you like to pick another seat?\n 1. Yes \n 2. No")
+        answ = int(input())
+        if (answ == 1):
+            Z = 0
+        elif (answ == 2):
+            Z = 5
+    print("", rowA, "\n", rowB, "\n", rowC, "\n", rowD, "\n", rowE, "\n", rowF, "\n", rowG, "\n", rowH, "\n", rowI)
+    quit()
+main()
+
+
