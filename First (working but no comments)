@@ -1,3 +1,4 @@
+#prices of tickets
 a = "10"
 b = "15"
 c = "20"
@@ -7,6 +8,7 @@ f = "35"
 g = "40"
 h = "45"
 i = "50"
+#defining lists for theater layout
 rowA = [a, a, a, a, a, a, a, a]
 rowB = [b, b, b, b, b, b, b, b]
 rowC = [c, c, c, c, c, c, c, c]
@@ -17,34 +19,35 @@ rowG = [g, g, g, g, g, g, g, g]
 rowH = [h, h, h, h, h, h, h, h]
 rowI = [i, i, i, i, i, i, i, i]
 def pick():
-    C = 1
-    Theater = [rowA, rowB, rowC, rowD, rowE, rowF, rowG, rowH, rowI]
-    while (C == 1):
+    C = 1 #start of loop
+    Theater = [rowI, rowH, rowG, rowF, rowF, rowE, rowD, rowC, rowB, rowA]
+    while (C == 1): #loop for picking of row
         print("pick your row, 1-9")
         pickRow = int(input())
         chosenRow = Theater[pickRow - 1]
         print("pick your seat in that row")
         pickSeat = int(input())
-        if (chosenRow[pickSeat - 1] == "X "):
+        if (chosenRow[pickSeat - 1] == "X "): #sold out seats cannot be purchased
             print("That seat had been sold, pick another")
             C = 1
         else:
             C = 4
     chosenRow[pickSeat - 1] = "X "
-    print("", rowA, "\n", rowB, "\n", rowC, "\n", rowD, "\n", rowE, "\n", rowF, "\n", rowG, "\n", rowH, "\n", rowI)
-def main():
+    print("", rowA, "\n", rowB, "\n", rowC, "\n", rowD, "\n", rowE, "\n", rowF, "\n", rowG, "\n", rowH, "\n", rowI) #prints theater
+def main(): #main function, runs menu
     Z = 0
-    while (Z == 0):
+    while (Z == 0): #picking loop
         print("", rowA, "\n", rowB, "\n", rowC, "\n", rowD, "\n", rowE, "\n", rowF, "\n", rowG, "\n", rowH, "\n", rowI)
         pick()
         print("would you like to pick another seat?\n 1. Yes \n 2. No")
         answ = int(input())
         if (answ == 1):
             Z = 0
-        elif (answ == 2):
+        elif (answ == 2): #end program
             Z = 5
     print("", rowA, "\n", rowB, "\n", rowC, "\n", rowD, "\n", rowE, "\n", rowF, "\n", rowG, "\n", rowH, "\n", rowI)
     quit()
 main()
+
 
 
