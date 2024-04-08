@@ -1,0 +1,87 @@
+#sets the prices
+a = "10"
+b = "15"
+c = "20"
+d = "25"
+e = "30"
+f = "35"
+g = "40"
+h = "45"
+i = "50"
+#sets up the rows
+rowA = [a, a, a, a, a, a, a, a]
+rowB = [b, b, b, b, b, b, b, b]
+rowC = [c, c, c, c, c, c, c, c]
+rowD = [d, d, d, d, d, d, d, d]
+rowE = [e, e, e, e, e, e, e, e]
+rowF = [f, f, f, f, f, f, f, f]
+rowG = [g, g, g, g, g, g, g, g]
+rowH = [h, h, h, h, h, h, h, h]
+rowI = [i, i, i, i, i, i, i, i]
+#fucntion for all purchases
+def pick():
+    Theater = [rowI, rowH, rowG, rowF, rowE, rowD, rowC, rowB, rowA]
+    Price = [i, h, g, f, e, d, c, b, a]
+    print("1. Pick a seat \n2. Buy All")
+    answ1 = int(input())
+    #normal pick loop
+    if (answ1 == 1):
+        C = 1
+        while (C == 1):
+            print("pick your row, 1-9")
+            pickRow = int(input())
+            chosenRow = Theater[pickRow - 1]
+            print("pick your seat in that row, 1-8")
+            pickSeat = int(input())
+            #checks if a seat has been bought
+            if (chosenRow[pickSeat - 1] == "XX"):
+                print("That seat had been sold, pick another")
+                C = 1
+            else:
+                C = 4
+        chosenRow[pickSeat - 1] = "XX"
+        print("", rowA, "\n", rowB, "\n", rowC, "\n", rowD, "\n", rowE, "\n", rowF, "\n", rowG, "\n", rowH, "\n", rowI)
+        print("Your seat costed $", Price[pickRow - 1])
+
+    if (answ1 == 2):
+        RCount = 0
+        InCount = 0
+        rowA.clear()
+        rowB.clear()
+        rowC.clear()
+        rowD.clear()
+        rowE.clear()
+        rowF.clear()
+        rowG.clear()
+        rowH.clear()
+        rowI.clear()
+        while (RCount < 9):
+            while (InCount < 8):
+                Theater[RCount].append("XX")
+                InCount = InCount + 1
+            RCount = RCount + 1
+            InCount = 0
+        SoldOut = True
+        print("", rowA, "\n", rowB, "\n", rowC, "\n", rowD, "\n", rowE, "\n", rowF, "\n", rowG, "\n", rowH, "\n", rowI, "\n The price is $2160")
+    if SoldOut == True:
+        print("All seats are sold")
+        quit()
+
+def main():
+    Z = 0
+    while (Z == 0):
+        print("", rowA, "\n", rowB, "\n", rowC, "\n", rowD, "\n", rowE, "\n", rowF, "\n", rowG, "\n", rowH, "\n", rowI)
+        pick()
+        print("Would you like to pick another seat?\n 1. Yes \n 2. No \n 3. Buy All")
+        answ = int(input())
+        if (answ == 1):
+            Z = 0
+        elif (answ == 2):
+            Z = 5
+        elif (answ == 3):
+            Z = 0 
+    print("", rowA, "\n", rowB, "\n", rowC, "\n", rowD, "\n", rowE, "\n", rowF, "\n", rowG, "\n", rowH, "\n", rowI)
+    quit()
+main()
+
+
